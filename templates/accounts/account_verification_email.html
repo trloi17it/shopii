@@ -1,0 +1,10 @@
+{% autoescape off %}
+
+Xin chào {{user.first_name}},
+
+Bạn đang tạo tài khoản trên Shopii! Hãy nhấp vào liên kết để tạo tài khoản!
+http://{{domain}}{% url 'activate' uidb64=uid token=token %}
+
+Nếu bạn không thực hiện yêu cầu Xin bỏ qua Email này!
+
+{% endautoescape %}

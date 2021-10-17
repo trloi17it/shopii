@@ -1,0 +1,49 @@
+<footer class="section-footer border-top">
+	<div class="container">
+		<section class="footer-bottom border-top row">
+			<div class="col-md-2">
+				<p class="text-muted">Về Shopii</p>
+				<span class="text-muted">Top 1 Buff bẩn</span><br>
+				<span class="text-muted">Top 1 Elsu</span>
+			</div>
+			<div class="col-md-2">
+				<p class="text-muted">Địa chỉ</p>
+				<span class="text-muted">Trụ sở: Bình nguyên vô tận</span><br>
+				<span class="text-muted">Khu vực: Mid</span>
+			</div>
+			<div class="col-md-2">
+				<p class="text-muted">Ship</p>
+				<span class="text-muted">Xử lý nhanh chóng</span><br>
+				<span class="text-muted">Nhiều dịch vụ giao hàng</span>
+			</div>
+			<div class="col-md-2">
+				<p class="text-muted">Chính sách bảo mật</p>
+				<span class="text-muted">Bảo mật thông tin</span><br>
+				<span class="text-muted">Xử lý hỗ trợ 24/7</span>
+			</div>
+			<div class="col-md-2">
+				<p class="text-muted">Hợp tác & liên kết</p>
+				<span class="text-muted">PayPal | Facebook</span>
+				<span class="text-muted">Garena</span>
+			</div>
+			<div class="col-md-2 text-md-right text-muted">
+				<i class="fab fa-lg fa-cc-visa"></i>
+				<i class="fab fa-lg fa-cc-paypal"></i>
+				<i class="fab fa-lg fa-cc-mastercard"></i>
+			</div>
+		</section>
+	</div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function(){
+		$('.thumb a').click(function(e){
+			e.preventDefault();
+			$('.mainImage img').attr('src', $(this).attr("href"));
+		})
+	})
+</script>
+
+</body>
+</html>

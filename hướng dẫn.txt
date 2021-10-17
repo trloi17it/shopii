@@ -1,0 +1,32 @@
+Đến trang admin :    http://127.0.0.1:8000/loginadmin/
+
+Tài khoản Paypal : sb-sl7dh7886156@personal.example.com
+
+Mật khẩu Paypal : |ylSA4$t
+
+Yêu cầu cài đặt cần thiết:
+
+Yêu cầu : Python (https://www.python.org/) version 3.8.2 (64 bit) có thể tải tại đây (https://download.com.vn/download/python-32-bit-10302?linkid=76033) 
+
+Sau khi cài đặt python chạy cmd gõ lệnh : pip install Django (thư viện cần thiết)
+
+Nếu bạn có lỗi : Consider using the `--user` option or check the permissions.   Hãy chạy lệnh sau để cập nhật pip :python -m pip install --user --upgrade pip
+
+Tiếp theo cài đặt model cần thiết: pip install -r requirements.txt  (cái model của django trong ứng dụng tự cài vào)
+
+Di chuyển đến soure code và chạy các lệnh dưới đây trên CMD (Cửa sổ lệnh)
+
+python manage.py migrate
+
+python manage.py runserver
+
+Mở trình duyệt và mở host của Django :
+
++ localhost trang chủ:	 http://127.0.0.1:8000/ 
+
+(Trang cửa hàng tiến hành đăng kí bình thường bằng email để tại tài khoản)
+
++localhost admin: http://127.0.0.1:8000/loginadmin/
+
+(Trang admin sử dụng: email:trloi17it@gmail.com , password:adminshop)
+

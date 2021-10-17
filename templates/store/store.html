@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="section-pagetop bg">
+<div class="container">
+	{% if 'search' in request.path %}
+		<h2 class="title-page">Tìm kiếm</h2>
+	{% else %}
+		<div class="intro-banner-wrap">
+			<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+				<div class="carousel-inner">
+				  <div class="carousel-item active">
+					<img style="height: 200px !important;" src="{% static 'images/banners/b1.jpg' %}" class="d-block w-100" alt="...">
+				  </div>
+				  <div class="carousel-item">
+					<img style="height: 200px !important;" src="{% static 'images/banners/b2.jpg' %}" class="d-block w-100" alt="...">
+				  </div>
+				  <div class="carousel-item">
+					<img style="height: 200px !important;" src="{% static 'images/banners/b3.jpg' %}" class="d-block w-100" alt="...">
+				  </div>
+				</div>
+				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+				  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				  <span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+				  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+				  <span class="visually-hidden">Next</span>
+				</button>
+			  </div>
+		</div>
+		
+		</div>
+	{% endif %}
+
+</div> 
+</section>
+
+<section class="section-content padding-y">
+<div class="container">
+
+<div class="row">
+	<aside class="col-md-3">
+
+<div class="card">
+	<article class="filter-group">
+		<header class="card-header">
+			<a href="#" data-toggle="collapse" data-target="#collapse_1" aria-expanded="true" class="">
+				<i class="icon-control fa fa-chevron-down"></i>
+				<h6 style="color: rgb(255, 53, 53);" class="title">Danh mục</h6>
+			</a>
+		</header>
+		<div class="filter-content collapse show" id="collapse_1">
+			<div class="card-body">
+
+				<ul class="list-menu">
+					<li><a href="{% url 'store' %}">Xem tất cả</a></li>
+					{% for category in links %}
+				<li><a href="{{ category.get_url }}">{{ category.category_name }}  </a></li>
+					{% endfor %}
+				</ul>
+
+			</div>
+		</div>
+	</article>
+</div> 
+
+	</aside>
+	<main class="col-md-9">
+
+<header class="border-bottom mb-4 pb-3">
+		<div class="form-inline">
+			<span class="mr-md-auto"><b>{{ product_count }}</b> Sản phẩm</span>
+
+		</div>
+</header>
+
+<div class="row">
+	{% if products %}
+	{% for product in products %}
+	<div class="col-md-4">
+		<figure class="card card-product-grid">
+			<div class="img-wrap">
+
+				<a href="{{ product.get_url }}"><img src="{{ product.images.url }}"></a>
+
+			</div>
+			<figcaption class="info-wrap">
+				<div class="fix-height">
+					<a href="{{ product.get_url }}" class="title">{{ product.product_name }}</a>
+					<div class="price-wrap mt-2">
+						<span class="price">{{ product.price|floatformat:3 }} đ</span>
+					</div>
+				</div>
+				<a href="{{ product.get_url }}" class="btn btn-block btn-primary"> Chi Tiết </a>
+			</figcaption>
+		</figure>
+	</div>
+	{% endfor %}
+	{% else %}
+	<div>
+		<h2>Không có sản phẩm</h2>
+	</div>
+	{% endif %}
+</div>
+
+
+<nav class="mt-4" aria-label="Page navigation sample">
+	{% if products.has_other_pages %}
+	  <ul class="pagination">
+			{% if products.has_previous %}
+	    <li class="page-item"><a class="page-link" href="?page={{products.previous_page_number}}">Previous</a></li>
+			{% else %}
+			<li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+			{% endif %}
+
+			{% for i in products.paginator.page_range %}
+				{% if products.number == i %}
+	    		<li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+				{% else %}
+					<li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+				{% endif %}
+	    {% endfor %}
+
+			{% if products.has_next %}
+	    	<li class="page-item"><a class="page-link" href="?page={{products.next_page_number}}">Next</a></li>
+			{% else %}
+				<li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+			{% endif %}
+	  </ul>
+	{% endif %}
+</nav>
+
+	</main> 
+
+</div>
+
+</div> 
+</section>
+
+{% endblock %}
